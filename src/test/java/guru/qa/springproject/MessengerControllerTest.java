@@ -2,11 +2,8 @@ package guru.qa.springproject;
 
 import guru.qa.springproject.domain.SignUpInfo;
 import guru.qa.springproject.domain.UserInfo;
-import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -16,7 +13,7 @@ import static io.restassured.RestAssured.with;
 
 public class MessengerControllerTest {
 
-    private RequestSpecification spec =
+    private final RequestSpecification spec =
             with()
                     .baseUri("http://localhost:8081")
                     .basePath("/");
