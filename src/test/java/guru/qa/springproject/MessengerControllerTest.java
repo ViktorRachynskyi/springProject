@@ -2,6 +2,7 @@ package guru.qa.springproject;
 
 import guru.qa.springproject.domain.SignUpInfo;
 import guru.qa.springproject.domain.UserInfo;
+import guru.qa.springproject.domain.UserMessage;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
 
@@ -65,12 +66,11 @@ public class MessengerControllerTest {
     public void getUsers() {
 
         List<Integer> userIDs = List.of(spec
-                .get("api/getUsers")
+                .get("api/user")
                 .then()
                 .statusCode(200)
                 .extract()
                 .as(Integer[].class));
-
     }
 
     @Test
@@ -80,10 +80,40 @@ public class MessengerControllerTest {
                 .queryParam("name", "Olga")
                 .queryParam("surname", "Kot")
                 .when()
-                .get("api/getUsers")
+                .get("api/user")
                 .then()
                 .statusCode(200)
                 .extract()
                 .as(Integer[].class));
+    }
+
+    @Test
+    public void sendMessage() {
+
+        UserMessage requestMessage = UserMessage.builder()
+                .message("Hello. How are you?")
+                .userFrom(1)
+                .userTo(2)
+                .build();
+
+        UserMessage responseMessage = spec
+                .contentType(JSON)
+                .body(requestMessage)
+                .when()
+                .post("api/user/message")
+                .then()
+                .statusCode(200)
+                .extract()
+                .as(UserMessage.class);
+    }
+
+    @Test
+    public void getMessages() {
+        List<UserMessage> messages = List.of(spec
+                .get("api/user/messages/2")
+                .then()
+                .statusCode(200)
+                .extract()
+                .as(UserMessage[].class));
     }
 }

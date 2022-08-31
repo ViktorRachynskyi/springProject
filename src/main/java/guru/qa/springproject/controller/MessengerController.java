@@ -2,40 +2,40 @@ package guru.qa.springproject.controller;
 
 import guru.qa.springproject.domain.SignUpInfo;
 import guru.qa.springproject.domain.UserInfo;
+import guru.qa.springproject.domain.UserMessage;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @RequestMapping("/api")
 @RestController
 public class MessengerController {
 
-    private static int counter = 0;
+    private static int counterUsers = 0;
+    private static int counterMessages = 0;
     private static final UserInfo[] userInfos = new UserInfo[10];
+    private static final UserMessage[] userMessages = new UserMessage[10];
 
     @PostMapping("/signup")
     @ApiOperation("registration")
     public UserInfo signUp(@RequestBody SignUpInfo signUpInfo) {
 
         UserInfo user = UserInfo.builder()
-                .ID(counter)
+                .ID(counterUsers)
                 .name(signUpInfo.getName())
                 .surname(signUpInfo.getSurname())
                 .build();
 
-        userInfos[counter++] = user;
+        userInfos[counterUsers++] = user;
 
         return user;
     }
 
-    @GetMapping("/getUsers")
-    @ApiOperation("getting list of users")
+    @GetMapping("/user")
+    @ApiOperation("searching users")
     @ResponseBody
     public List<Integer> getUsers(@RequestParam(value = "name", required = false) String name,
                                   @RequestParam(value = "surname", required = false) String surname) {
@@ -64,5 +64,31 @@ public class MessengerController {
                     .filter(Objects::nonNull)
                     .map(UserInfo::getID).toList();
         }
+    }
+
+    @PostMapping("/user/message")
+    @ApiOperation("sending message")
+    public UserMessage sendMessage(@RequestBody UserMessage newMessage) {
+
+        UserMessage message = UserMessage.builder()
+                .message(newMessage.getMessage())
+                .userFrom(newMessage.getUserFrom())
+                .userTo(newMessage.getUserTo())
+                .build();
+
+        userMessages[counterMessages++] = message;
+
+        return message;
+    }
+
+    @GetMapping("/user/messages/{id}")
+    @ApiOperation("get user messages")
+    @ResponseBody
+    public List<UserMessage> getUserMessages(@PathVariable("id") String id) {
+
+        return Stream.of(userMessages)
+                .filter(Objects::nonNull)
+                .filter(x -> x.getUserTo() == 2)
+                .toList();
     }
 }
