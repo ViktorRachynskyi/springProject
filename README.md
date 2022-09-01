@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # REST API Service Project
 
 ### Used Technologies & Tools:
@@ -14,7 +13,7 @@
 </p>
 
 ### Swagger as a REST API Service Self-Documentation:
-Swagger is available on by link http://localhost:9090/swagger-ui/ after Service is started.
+Swagger is available on by link http://localhost:8081/swagger-ui/ after Service is started.
 ![image](images/swagger-view.png)
 
 ### How To Run Service:
