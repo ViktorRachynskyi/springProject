@@ -21,15 +21,12 @@ The repository should be cloned and Service should be started. Service runs loca
 ![image](images/launch-service.png)
 
 ### List of the Automated Tests:
-- [X] Get all books
-- [X] Get book by existing ISBN
-- [X] Get book by existing ISBN
-- [X] Get book by not existing ISBN
-- [X] Add new book
-- [X] Get all authors
-- [X] Get book by existing author
-- [X] Get book by not existing author
-- [X] Add new author
+- [X] Sign up
+- [X] Add User
+- [X] Get User info
+- [X] Get User info use filters
+- [X] Send message
+- [X] Get list of messages
 
 ### How To Run Tests </br>
 ```bash
