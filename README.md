@@ -17,7 +17,7 @@ Swagger is available on by link http://localhost:8081/swagger-ui/ after Service 
 ![image](images/swagger-view.png)
 
 ### How To Run Service:
-The repository should be cloned and Service should be started. Service runs locally on 9090 port.
+The repository should be cloned and Service should be started. Service runs locally on 8081 port.
 ![image](images/launch-service.png)
 
 ### List of the Automated Tests:
@@ -29,24 +29,6 @@ The repository should be cloned and Service should be started. Service runs loca
 - [X] Get list of messages
 
 ### How To Run Tests </br>
-```bash
-gradle clean test apiTests
-```
 
-### Allure Report For Test Results Presentation
-#### How to Run Allure Report
-After tests are executed run the following command at Terminal
-```bash
-gradle allureServe
-```
-or run report using GUI
-![image](images/allure-serve.png)
-
-#### Allure Report Results
-![image](images/allure-report-overview.png)
-![image](images/allure-report-behavior.png)
-
-
-:heart: <a target="_blank" href="https://qa.guru">qa.guru</a><br/>
-:blue_heart: <a target="_blank" href="https://t.me/qa_automation">t.me/qa_automation</a>
+![image](images/launch-test.png)
 =======
