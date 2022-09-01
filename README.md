@@ -29,6 +29,5 @@ The repository should be cloned and Service should be started. Service runs loca
 - [X] Get list of messages
 
 ### How To Run Tests </br>
-
 ![image](images/launch-test.png)
 =======
