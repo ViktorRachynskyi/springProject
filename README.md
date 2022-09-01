@@ -9,7 +9,6 @@
 <img height="40" width="40" src="images/IDEA-logo.svg" alt="IDEA">
 <img height="40" width="40" src="images/git-logo.svg" alt="git">
 <img height="40" width="40" src="images/swagger-logo.png" alt="swagger">
-<img height="40" width="40" src="images/allure-Report-logo.svg" alt="allure">
 </p>
 
 ### Swagger as a REST API Service Self-Documentation:
